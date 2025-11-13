@@ -1,3 +1,5 @@
+package demo;
+
 import java.util.Scanner;
 import java.util.logging.Logger;
 

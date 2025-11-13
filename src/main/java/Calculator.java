@@ -16,7 +16,7 @@ public class Calculator {
 
         String resultDes = "Result is:  %.2f";
 
-        final double result1 = addValues(num1, num2);
+        final double result1 = sumValues(num1, num2);
         logger.info(() -> String.format(resultDes, result1));
 
         final double result2 = subtractValue(num1, num2);
@@ -31,10 +31,9 @@ public class Calculator {
         input.close();
     }
 
-    public static double addValues(double num1, double num2) {
+    public static double sumValues(double num1, double num2) {
         return num1 + num2;
     }
-
 
     public static double subtractValue(double num1, double num2) {
         return num1 - num2;

@@ -5,14 +5,13 @@ import static org.junit.Assert.assertEquals;
 public class CalculatorTest {
 
     @Test
-    public void addValues() {
-        assertEquals(16, 0.1, Calculator.addValues(12, 4));
+    public void sumValues() {
+        assertEquals(16, Calculator.sumValues(12, 4), 0.01);
     }
 
     @Test
     public void subtractValue() {
         assertEquals(-8, Calculator.subtractValue(-12, -4), 0.01);
-
     }
 
     @Test

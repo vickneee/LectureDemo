@@ -32,6 +32,18 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Code Coverage') {
+            steps {
+                sh 'mvn jacoco:report'
+            }
+        }
+
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv("${env.SONARQUBE_SERVER}") {

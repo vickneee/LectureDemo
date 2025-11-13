@@ -7,7 +7,7 @@ pipeline {
         PATH = "/usr/local/bin:${env.PATH}"
 
         SONARQUBE_SERVER = 'SonarQubeServer'
-        SONAR_TOKEN = 'squ_64629622ab9511b7773847e066837d4d8ba56cc0' // Make sure a right token is selected
+        SONAR_TOKEN = 'SONAR_TOKEN'
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
         DOCKERHUB_REPO = 'vickneee/sonarqube_demo'
         DOCKER_IMAGE_TAG = 'latest'
@@ -16,7 +16,6 @@ pipeline {
     tools {
         maven 'Maven3'
     }
-
 
     stages {
 
@@ -46,16 +45,19 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv("${env.SONARQUBE_SERVER}") {
-                    sh """
-                        /usr/local/sonarscanner/bin/sonar-scanner \
-                        -Dsonar.projectKey=LectureDemo_SonarQube \
-                        -Dsonar.sources=src \
-                        -Dsonar.projectName=LectureDemo_SonarQube \
-                        -Dsonar.host.url=http://localhost:9000 \
-                        -Dsonar.token=${env.SONAR_TOKEN} \
-                        -Dsonar.java.binaries=target/classes \
-                    """
+                withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]) {
+                    withSonarQubeEnv("${env.SONARQUBE_SERVER}") {
+                        // First line is Mac local sonar-scanner path -> use correct path
+                        sh """
+                            /usr/local/sonarscanner/bin/sonar-scanner \
+                            -Dsonar.projectKey=LectureDemo_SonarQube \
+                            -Dsonar.sources=src \
+                            -Dsonar.projectName=LectureDemo_SonarQube \
+                            -Dsonar.host.url=http://localhost:9000 \
+                            -Dsonar.token=${env.SONAR_TOKEN} \
+                            -Dsonar.java.binaries=target/classes \
+                        """
+                    }
                 }
             }
         }

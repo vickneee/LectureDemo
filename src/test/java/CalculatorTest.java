@@ -21,6 +21,6 @@ public class CalculatorTest {
 
     @Test
     public void divideValues() {
-        assertEquals(6,  Calculator.divideValues(12, 2), 0.01);
+        assertEquals(6,  Calculator.divideValue(12, 2), 0.01);
     }
 }

@@ -25,7 +25,7 @@ public class Calculator {
         final double result3 = multiplyValues(num1, num2);
         logger.info(() -> String.format(resultDes, result3));
 
-        final double result4 = divideValues(num1, num2);
+        final double result4 = divideValue(num1, num2);
         logger.info(() -> String.format(resultDes, result4));
 
         input.close();
@@ -43,7 +43,7 @@ public class Calculator {
         return num1 * num2;
     }
 
-    public static double divideValues(double num1, double num2) {
+    public static double divideValue(double num1, double num2) {
         return num1 / num2;
     }
 }

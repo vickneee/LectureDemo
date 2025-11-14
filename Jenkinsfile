@@ -6,8 +6,8 @@ pipeline {
     environment {
         PATH = "/usr/local/bin:${env.PATH}"
 
-        SONARQUBE_SERVER = 'SonarQubeServer'
-        SONAR_TOKEN = 'SONAR_TOKEN'
+        SONARQUBE_SERVER = 'SonarQubeServer' // SonarQube server name in Jenkins config
+        SONAR_TOKEN = 'SONAR_TOKEN' // SONAR_TOKEN is name in Jenkins credentials, using Secret text
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
         DOCKERHUB_REPO = 'vickneee/sonarqube_demo'
         DOCKER_IMAGE_TAG = 'latest'
@@ -54,7 +54,7 @@ pipeline {
                             -Dsonar.sources=src \
                             -Dsonar.projectName=LectureDemo_SonarQube \
                             -Dsonar.host.url=http://localhost:9000 \
-                            -Dsonar.token=${env.SONAR_TOKEN} \
+                            -Dsonar.login=${env.SONAR_TOKEN} \
                             -Dsonar.java.binaries=target/classes \
                         """
                     }

@@ -7,7 +7,7 @@ pipeline {
         PATH = "/usr/local/bin:${env.PATH}"
 
         SONARQUBE_SERVER = 'SonarQubeServer' // SonarQube server name in Jenkins config
-        SONAR_TOKEN = 'SONAR_TOKEN' // SONAR_TOKEN is name in Jenkins credentials, using Secret text
+        SONAR_TOKEN = 'SONAR_TOKEN' // SONAR_TOKEN=ID in Jenkins credentials, using Secret text as Secret=your_sonar_token
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
         DOCKERHUB_REPO = 'vickneee/sonarqube_demo'
         DOCKER_IMAGE_TAG = 'latest'

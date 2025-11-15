@@ -2,5 +2,5 @@ projectKey=LectureDemo_SonarQube
 serverUrl=http://localhost:9000
 serverVersion=25.11.0.114957
 dashboardUrl=http://localhost:9000/dashboard?id=LectureDemo_SonarQube
-ceTaskId=3255aa46-08b2-49a9-898a-bc853a77c2b9
-ceTaskUrl=http://localhost:9000/api/ce/task?id=3255aa46-08b2-49a9-898a-bc853a77c2b9
+ceTaskId=c8cb0681-e9d9-4b2b-bcad-ab64c5c7614b
+ceTaskUrl=http://localhost:9000/api/ce/task?id=c8cb0681-e9d9-4b2b-bcad-ab64c5c7614b
